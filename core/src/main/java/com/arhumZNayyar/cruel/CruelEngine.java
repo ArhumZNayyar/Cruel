@@ -30,19 +30,17 @@ public class CruelEngine extends BasicGame {
     
     @Override
     public void update(float delta) {
-    
+        player.update(delta);
     }
     
     @Override
     public void interpolate(float alpha) {
-    
+        player.interpolate(alpha);
     }
     
     @Override
     public void render(Graphics g) {
-		g.drawTexture(texture, 0f, 0f);
-        g.drawString("Hello World!", 32, 32);
         tiledMap.draw(g, 0, 0);
-        g.drawSprite(player.getSprite());
+        player.draw(g);
     }
 }
