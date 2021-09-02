@@ -13,8 +13,8 @@ public class Player {
     InputHandler inputHandler;
 
     private String playerSpriteSheet = "Sprites/Player.png";
-    private int playerPosX = 10;
-    private int playerPosY = 10;
+    private float playerPosX = 10;
+    private float playerPosY = 10;
 
     private CollisionPoint point;
 
@@ -37,9 +37,12 @@ public class Player {
 
     public void update(float delta) {
         checkInput(delta);
+        if (playerPosX < 0)
+            playerPosX = 0.0f;
+        if (playerPosY < 0)
+            playerPosY = 0.0f;
         getSprite().setY(playerPosY);
         getSprite().setX(playerPosX);
-
 
         point.preUpdate();
         point.set(playerPosX, playerPosY);
